@@ -1,0 +1,238 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="{% static 'MyPortfolioApp/js.js' %}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+    <script src="{% static 'js.js' %}"></script>
+
+
+    <link href="{% static 'MyPortfolioApp/styles.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    {% block content%}
+    {% endblock %}
+    <style type="text/css">
+
+      .nav-tabs .nav-link.active {
+        color: #ffffff;
+        background-color: grey;
+        border-color: #dee2e6 #dee2e6 #fff;
+      }
+      #nav2{
+        visibility: hidden;
+        position:absolute;
+      }
+      .nav2{
+         display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        padding-top: 0;
+      }
+      .nav2 a{
+        color: black;
+
+     }
+
+     #menuna a {
+      list-style:none;
+      margin-top:10px;
+      padding:8px;
+      margin-left:0px;
+    }
+    
+    #menuna a.active {
+      background:#dfe0e5;
+      overflow:hidden;
+      border-left:2px solid #00f;
+      padding:8px;
+      
+    }
+
+     
+    </style>
+      
+    <nav class="sticky navbar" style="height: 5%;">
+      <div class="container">
+      <div class="brand  display__logo">
+        <a href="#top" class="nav__link" style="border: 2px solid white;"> S. O. Anari</a>
+      </div>
+    
+      <input type="checkbox" id="nav" class="hidden" />
+      <label for="nav" class="nav__open"><i></i><i></i><i></i></label>
+      <div class="nav" id="mainMenu">
+        <ul class="nav__items ml-auto text-uppercase f1 nav-links" id="menu" role="menubar">
+          <li class="active"> 
+            <a class="nav__link nav-link" role="menuitem" href="{% url 'index' %}" >home</a>
+          </li>
+          <li>
+            <a href="{% url 'about' %}" class="nav__link nav-link" role="menuitem" >about me</a>
+          </li>
+          <li>
+            <a href="{% url 'project' %}" class="nav__link nav-link" role="menuitem" >projects</a>
+          </li>
+          <li>
+            <a href="{% url 'cactus' %}" class="nav__link nav-link" role="menuitem" >cactus technology</a>
+          </li>
+          <li>
+            <a href="#contact-pointer" class="nav__link nav-link" role="menuitem" >contact</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+    {% comment %} <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="{% url 'home' %}">E Shop</a>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == url %}active{% endif %}" href="{% url 'about' %}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_signup' %}">Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'account_login' %}">Sign In</a>
+          </li>
+        </ul>
+      </div>
+    </nav> {% endcomment %}
+
+    
+
+    {% block body %}
+    {% endblock %}
+
+
+    <footer class="mainfooter" role="contentinfo">
+      <div class="footer-middle">
+      <div class="container ">
+        <div class="row d-flex">
+          <div class="col-md-3 col-sm-6">
+            <!--Column1-->
+            <div class="footer-pad">
+              <h4><img src="{% static 'MyPortfolioApp/White2.PNG' %}" style="width:60%"></h4>
+              <h5>AFFILIATES:</h5>
+              <ul class="list-unstyled">
+               
+                <li><a href="#">CACTUS TECHNOLOGY</a></li>
+                <li><a href="#">RAYOMIMO NIG LTD.</a></li>
+                <li><a href="#">MYITGUY</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-sm-6">
+            <!--Column1-->
+            <div class="footer-pad">
+              <h4><strong>Subscribe</strong> to our newsletter</h4>  
+              <h6 class="font-alt">Get updates on my new project in your inbox</h6>
+              <br>
+              <form class="form-subscribe" action="#">
+                <div class="input-group">
+                  <input type="text" class="form-control input-lg" placeholder="Your eamil address">
+                  <span class="input-group-btn">
+                    <button class="btn btn-success btn-lg" type="submit" >Subscribe</button>
+                  </span>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-md-3" id="contact-pointer">
+            <h4>Follow Me</h4>
+                <ul class="social-network social-circle">
+                 <li><a href="#" class="icoTwitter" title="Twitter"><i class="fab fa-twitter"></i></a></li>
+                 <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fab fa-linkedin-in"></i></a></li>
+                 <li><a href="#" class="icoEmail" title="Email"><i class="fa fa-envelope-open" aria-hidden="true"></i></a></li>
+                 <li><a href="#" class="icoGithub" title="GitHub"><i class="fab fa-github"></i></a></li>
+                 <li><a href="#" class="icoWebsite" title="Website"><i class="fas fa-globe"></i></a></li>
+
+                </ul>
+                <div class="info-section">
+                  <i class="fas fa-phone"></i>
+                  <span>(+234)813-421-8621</span>
+                </div>
+                <div class="info-section">
+                  <i class="fas fa-paper-plane"></i>
+                  <span>Samachoo2010@icloud.com</span>
+                </div>
+        </div>
+        </div>
+      <div class="row">
+        <div class="col-md-12 copy">
+          <p class="text-center">&copy; Copyright 2022 - <a href={%if user.is_authenticated%} {% url 'myforms' %}{%else%}{% url 'login' %}{%endif%}>S.O. Anari</a>.  All rights reserved.</p>
+        </div>
+      </div>
+    
+    
+      </div>
+      </div>
+    </footer>
+      
+
+    
+
+
+    <script type="text/javascript">
+      jQuery(function($) {
+        var path = window.location.href; 
+        // because the 'href' property of the DOM element is the absolute path
+        $('ul a').each(function() {
+          if (this.href === path) {
+            $(this).addClass('active');
+          }
+        });
+      });
+    </script>
+
+    <script type="text/javascript">
+      $(window).scroll(function(){
+        if($(this).scrollTop() > 100){
+            $('.nav').addClass('sticky','container-fluid')
+        } else{
+            $('.nav').removeClass('sticky','container-fluid')
+        }
+      });
+    </script>
+    <script type="text/javascript">
+      $(window).scroll(function(){
+        if ($(window).scrollTop() >= 30) {
+            $('#nav2').addClass('fixed-header');
+            
+        }
+        else {
+            $('#nav2').removeClass('fixed-header');
+            
+        }
+    });
+  </script>
+<script type="text/javascript">
+  $(document).ready(function () {
+  
+    $(".one").click(function (){
+      $(this).addClass("active").siblings().removeClass("active");
+    });
+  });
+  
+</script>
+
+
+  </body>
+</html>

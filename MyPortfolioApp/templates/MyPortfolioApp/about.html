@@ -1,0 +1,372 @@
+{% extends "MyPortfolioApp/layout.html" %}
+
+
+
+{%block body%}
+
+{% block nav2 %}
+<style type="text/css">
+
+    
+    #nav2{
+      visibility: visible;
+      position:relative;
+    }
+
+    .nav2{
+       
+       padding-top: 1%;
+     }
+
+    .portfolio-section{
+      background: #ffffff;
+    }
+
+    
+</style>
+
+<!--second div, default invisible-->
+<div>
+  <div id="nav2">
+    <section class="portfolio-section" id="portfolio" >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2>{% block bodytitle %}<h2>About me</h2>{% endblock %}</h2>
+            <p>Use all the same size pictures :){{category.spec_name}}</p>
+          </div>
+        </div>
+        <div class="portfolio-menu mt-2 mb-4">
+          <nav class="controls" id="menuna">
+           
+
+            <a type="button" class="control outline one {%if url_name == 'about' %}active{%endif%}" href="{% if request.path == orders_list_url %}{{ orders_list_url }}{% else %}{% url 'about' %}{% endif %}">All</a>
+            {% for c in specialities %}
+            <a type="button" class="control outline one {%if url_name == c.get_absolute_url  %}active{%endif%}" href="{{ c.get_absolute_url }}">{{ c.spec_name }}</a>
+            {% endfor %}
+          </nav>
+
+          <form method="get"></form>
+        </div>
+      </div>
+    </section>
+  </div>
+      
+</div>
+
+
+
+<section class="portfolio-section" id="portfolio" style="padding-top:0;">
+  <div class="container">
+
+    
+  
+    <ul class="row portfolio-item">
+      <div class="wrapper">
+        <div class="intro">
+          <div class="profile">
+            <div class="photo">
+              <img src="https://i.imgur.com/zh9eNsh.jpg">
+            </div>
+            <div class="bio">
+              <h1 class="name">Samuel Oluwaseun Anari</h1>
+              {% for p in projects %}
+            <p class="paragraph">
+              
+              <p class="profession">{{p.job_title}}</p>
+            </p>
+            {% endfor %}
+              
+            </div>
+          </div>
+          <div class="intro-section about">
+            <h1 class="title">professional summary</h1>
+
+         
+           {% for p in projects %}
+            <p class="paragraph">
+              
+            {{p.about_me}} 
+            </p>
+            {% endfor %}
+          </div>
+          <div class="intro-section contact">
+            <h1 class="title">Contact</h1>
+            <div class="info-section">
+              <i class="fas fa-phone"></i>
+              <span>(+234) 813-421-8621</span>
+            </div>
+            <div class="info-section">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Lagos, Nigeria</span>
+            </div>
+            <div class="info-section">
+              
+              
+           {% for p in projects %}
+           <i class="fas fa-paper-plane"></i>
+           <span>{{p.email}}</span><br>
+           {% endfor %}
+              
+            </div>
+         
+          </div>
+          <div class="intro-section follow">
+            <h1 class="title">Follow</h1>
+            
+            <div class="info-section link">
+              <a href="#" class="icoLinkedin" title="Linkedin">
+                <i class="fab fa-linkedin-in"></i>
+                <span>www.linkedin.com/in/samuel-anari/</span>
+              </a>
+             
+            </div>
+            <div class="info-section link">
+              <a href="#" class="icoGithub" title="GitHub">
+                <i class="fab fa-github"></i>
+                <span>https://github.com/sanari2019</span>
+              </a>
+             
+            </div>
+            <div class="info-section link">
+              <a href="#" class="icoWebsite" title="Website">
+                <i class="fas fa-globe"></i>
+                <span>My Website</span>
+              </a>
+             
+            </div>
+          
+            
+        </div>
+        </div>
+        <div class="detail">
+          <div class="detail-section edu">
+            <div class="detail-title">
+              <div class="title-icon">
+                <i class="fab fa-creative-commons-nd"></i>
+              </div>
+              <span>Professional Experience</span>
+            </div>
+            <div class="timeline">
+
+                <div class="events">
+                  
+
+                  {% for ex in experience reversed %}
+                  <div class="event">
+                    
+                    <div class="description">
+                      <h2 style="font-size:24px"><strong>{{ex.job_role}},</strong></h2>
+                      <p style="font-size:22px">{{ex.company}}</p>
+                    </div>
+
+                    <div class="knob"></div>
+                    <div class="date">
+                      <h3 style="font-size:20px">{{ex.monthstarted}}, {{ex.yearstarted}} - {{ex.monthended}}, {{ex.yearended}}</h3>
+                    </div>
+                   
+
+                    <div class="description">
+                      <h6><strong>KEY ACHIEVEMENTS:</strong></h6>
+                      <p>{{ex.achievement|linebreaks}}</p>
+                      <h6><strong>RESPONSIBILITIES</strong></h6>
+                      <p>{{ex.responsibilities|linebreaks}}</p>
+                    </div>
+                  </div>
+
+                  {% endfor %}
+                  
+                  
+                  <div class="line"></div>
+                </div>
+            </div>
+                  
+          </div>
+          <div class="detail-section edu">
+            <div class="detail-title">
+              <div class="title-icon">
+                <i class="fas fa-user-graduate"></i>
+              </div>
+              <span>Education</span>
+            </div>
+            <div class="timeline">
+
+                <div class="events">
+                  {% for e in education reversed %}
+            
+                  
+                  <div class="event">
+                    <div class="knob"></div>
+                    <div class="date">
+                      <h2 style="font-size:22px">{{e.yearstarted}} - {{e.yearended}}</h2>
+                    </div>
+                    <div class="description">
+                      <h2 style="font-size:24px"><strong>{{e.program}},</strong></h2>
+                      <p style="font-size:20px">{{e.school}}</p>
+                    </div>
+                  </div>
+                  {% endfor %}
+                  
+                  <div class="line"></div>
+                </div>
+            </div>
+                
+          </div>
+
+          
+
+
+          <div class="detail-section pg-skill">
+            <div class="detail-title">
+              <div class="title-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <span>Skills</span>
+            </div>
+            <div class="detail-content">
+             
+              <div class="skill-container" style="display:flex">
+               
+                <div class="skillset">
+                  {% for s in skill %}
+                  <h6 style="text-transform:uppercase; width:90%;"><strong>{{s.skill_title}}</strong></h6><hr>
+                  
+                 
+                  <div class="skill-unit">
+                    
+                        <div class="skill-lable">{{s.skill_set1}}</div>
+                        <div class="skill-icon skill-3">
+                            <span></span><span></span><span></span><span></span><span></span>
+                            
+                        </div><!--Skill-Icon--> 
+                  </div><!--END-Skill-Unit-->
+                  
+                  <div class="skill-unit">
+                      <div class="skill-lable">{{s.skill_set2}}</div>
+                          <div class="skill-icon skill-4">
+                              <span></span><span></span><span></span><span></span><span></span>
+                      
+                          </div><!--Skill-Icon-->
+                  </div><!--END-Skill-Unit-->
+                  
+                  <div class="skill-unit">
+                      <div class="skill-lable">{{s.skill_set3}}</div>
+                          <div class="skill-icon skill-5">
+                              <span></span><span></span><span></span><span></span><span></span>
+                              
+                          </div><!--Skill-Icon-->
+                  </div><!--END-Skill-Unit-->
+
+                  <div class="skill-unit">
+                    <div class="skill-lable">{{s.skill_set4}}</div>
+                        <div class="skill-icon skill-5">
+                            <span></span><span></span><span></span><span></span><span></span>
+                            
+                        </div><!--Skill-Icon-->
+                </div><!--END-Skill-Unit-->
+                {% endfor %}
+                </div>
+                
+              </div>  
+                  
+            </div>
+          </div>
+
+
+          <div class="detail-section tool-skill">
+            <div class="detail-title">
+              <div class="title-icon">
+                <i class="fas fa-tools"></i>
+              </div>
+              <span>Courses and Certifications</span>
+            </div>
+            {% for cert in course %}
+            <div class="detail-content">
+              <ul>
+                <li style="line-height: 0.1;"><div>
+                  <h5><strong>{{cert.course}},</strong></h5>
+                  <h6><i>{{cert.course_school}},</i></h6>
+                </div>
+                <div>
+                  <p>{{cert.yearstarted}} - {{cert.yearended}} </h5>
+                </div></li>
+              </ul>  
+            </div>
+            {% endfor %}
+          </div>
+          
+          <div class="detail-section interests">
+            <div class="detail-title">
+              <div class="title-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <span>Interests & Language</span>
+            </div>
+            <div class="detail-content">
+              <div class="outer-frame">
+                <ul class="favor-list">
+                  <li>
+                    <i class="fas fa-gamepad"></i>
+                    <span>Game</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-paw"></i>
+                    <span>Pet</span>
+                  </li>
+                  <li>
+                    <i class="far fa-headphones-alt"></i>
+                    <span>Music</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-book-spells"></i>
+                    <span>Self-learning</span>
+                  </li>
+                  <li>
+                    <i class="fas fa-user-edit"></i>
+                    <span>English (Native)</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+    </ul>
+  </div>
+</section>
+
+<!-- JS Links -->
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.2.2/mixitup.min.js'></script>
+
+<!-- Fancybox js -->
+<script>
+  /*Downloaded from https://www.codeseek.co/ezra_siton/mixitup-fancybox3-JydYqm */
+  // 1. querySelector
+  var containerEl = document.querySelector(".portfolio-item");
+  // 2. Passing the configuration object inline
+  //https://www.kunkalabs.com/mixitup/docs/configuration-object/
+  var mixer = mixitup(containerEl, {
+    animation: {
+      effects: "fade translateZ(-100px)",
+      effectsIn: "fade translateY(-100%)",
+      easing: "cubic-bezier(0.645, 0.045, 0.355, 1)"
+    }
+  });
+  // fancybox insilaze & options //
+  $("[data-fancybox]").fancybox({
+    loop: true,
+    hash: true,
+    transitionEffect: "slide",
+    /* zoom VS next////////////////////
+    clickContent - i modify the deafult - now when you click on the image you go to the next image - i more like this approach than zoom on desktop (This idea was in the classic/first lightbox) */
+    clickContent: function(current, event) {
+      return current.type === "image" ? "next" : false;
+    }
+  });
+</script>
+
+{%endblock%}
+
+  {%endblock%}

@@ -1,0 +1,335 @@
+{% extends "MyPortfolioApp/layout.html" %}
+{% load crispy_forms_tags %}
+
+
+{% block body %}
+{% block nav2 %}
+<style type="text/css">
+
+    
+    #nav2{
+      visibility: visible;
+      position: relative;
+    }
+
+    .nav2{
+       
+       padding-top: 1%;
+     }
+
+    
+     
+    
+</style>
+
+
+  <section class="portfolio-section" id="portfolio" style="padding-top:0; z-index:1000000;">
+    <div class="container">
+     
+      
+    <!--second div, default invisible-->
+    <div>
+      <div id="nav2">
+        <section class="portfolio-section" id="portfolio" >
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2>{% block bodytitle %}Project Gallery{% endblock %}</h2>
+                <p>Use all the same size pictures :){{category.spec_name}}</p>
+              </div>
+            </div>
+            <div class="portfolio-menu mt-2 mb-4">
+             
+                
+               
+              <form method="get " enctype="multipart/form-data">
+                {% csrf_token %}
+        
+              
+                
+                {{ portfolio_filter.form|crispy}}
+                
+                <button class="btn btn-sm btn-danger" type="submit">Submit</button>
+              </form>
+            
+            </div>
+          </div>
+        </section>
+      </div>
+          
+    </div>
+      <ul class="row portfolio-item">
+        {% for project in portfolio_filter.qs %}
+        <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 pd">
+      <img src="{{project.image_url}}" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">{{project.project_name}}</p>
+              <a href="{{project.project_url}}" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="{{project.image_url}">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        {% endfor %}
+        <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix web col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix wp col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1520085601670-ee14aa5fa3e8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 pd ">
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix web col-xl-3 col-md-4 col-12 col-sm-6 pd ">
+          <img src="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1534665482403-a909d0d97c67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix wp col-xl-3 col-md-4 col-12 col-sm-6 pd ">
+          <img src="https://images.unsplash.com/photo-1581472723648-909f4851d4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1581472723648-909f4851d4ae?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix web col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1605379399843-5870eea9b74e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=898&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1605379399843-5870eea9b74e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=898&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix wp col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1555099962-4199c345e5dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix dev col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1627398242454-45a1465c2479?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix web col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1484417894907-623942c8ee29?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="mix wp col-xl-3 col-md-4 col-12 col-sm-6 pd">
+          <img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80" itemprop="thumbnail" alt="Image description" />
+          <div class="portfolio-overlay">
+            <div class="overlay-content">
+              <p class="category">Project Name</p>
+              <a href="#" title="View Project" target="_blank">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-link" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+              <a data-fancybox="item" title="click to zoom-in" href="https://images.unsplash.com/photo-1587620962725-abab7fe55159?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1031&q=80" data-size="1200x600">
+                <div class="magnify-icon">
+                  <p><span><i class="fa fa-search" aria-hidden="true"></i></span></p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </li>
+      </ul>
+     
+    </div>
+  </section>
+
+  <!-- JS Links -->
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.2.2/mixitup.min.js'></script>
+
+  <!-- Fancybox js -->
+  <script>
+    /*Downloaded from https://www.codeseek.co/ezra_siton/mixitup-fancybox3-JydYqm */
+    // 1. querySelector
+    var containerEl = document.querySelector(".portfolio-item");
+    // 2. Passing the configuration object inline
+    //https://www.kunkalabs.com/mixitup/docs/configuration-object/
+    var mixer = mixitup(containerEl, {
+      animation: {
+        effects: "fade translateZ(-100px)",
+        effectsIn: "fade translateY(-100%)",
+        easing: "cubic-bezier(0.645, 0.045, 0.355, 1)"
+      }
+    });
+    // fancybox insilaze & options //
+    $("[data-fancybox]").fancybox({
+      loop: true,
+      hash: true,
+      transitionEffect: "slide",
+      /* zoom VS next////////////////////
+      clickContent - i modify the deafult - now when you click on the image you go to the next image - i more like this approach than zoom on desktop (This idea was in the classic/first lightbox) */
+      clickContent: function(current, event) {
+        return current.type === "image" ? "next" : false;
+      }
+    });
+  </script>
+{%endblock%}
+
+{% endblock %}

@@ -1,0 +1,334 @@
+{% extends "MyPortfolioApp/layout.html" %}
+
+
+
+{%block body%}
+<script type="text/javascript">
+  let previousLength = 0;
+
+  const handleInput = (event) => {
+    const bullet = "\u2022";
+    const newLength = event.target.value.length;
+    const characterCode = event.target.value.substr(-1).charCodeAt(0);
+
+    if (newLength > previousLength) {
+      if (characterCode === 10) {
+        event.target.value = `${event.target.value}${bullet} `;
+      } else if (newLength === 1) {
+        event.target.value = `${bullet} ${event.target.value}`;
+      }
+    }
+    
+    previousLength = newLength;
+  }
+</script>
+
+<button type="submit" class="btn btn-info">Logout</button>
+<div class="container" style="padding:5%;">
+    <h4>Testimonial</h4>
+    <br>
+    <div class="row">
+
+      <div class="col-8">
+        <form method="POST" action="{% url 'index'%}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="image">Image url</label>
+            <input type="url" class="form-control" id="image" aria-describedby="imageHelp" placeholder="Enter image url" name="img_url">
+          </div>
+          
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="name" class="form-control" id="name" placeholder="Name"  name="client_name">
+          </div>
+          
+          <div class="form-group">
+            <label for="testimony">Testimony</label>
+            <textarea class="form-control" id="testimony" rows="3" placeholder="Write your testimony here..."  name="testimony"></textarea>
+          </div>
+          
+          
+         
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+</div>
+<div class="container" style="padding:5%;">
+    <h4>Portfolio</h4>
+    <br>
+    <div class="row">
+
+      <div class="col-8">
+        <form method="POST" action="{% url 'createport'%}">
+
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="name">Specialty</label>
+            <select name="speciality">
+              <option value="None" selected="selected"></option>
+              {% for specilaty in specialities %}
+              <option value="{{ specilaty.specilaty_id }}" >{{ specilaty.spec_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Image url</label>
+            <input type="url" class="form-control" id="image" aria-describedby="imageHelp" placeholder="Enter image url" name="image_url">
+          </div>
+
+
+          <div class="form-group">
+            <label for="name">Project Name</label>
+            <input type="name" class="form-control" id="name" placeholder="Name" name="project_name">
+          </div>
+
+          <div class="form-group">
+            <label for="image">Project url</label>
+            <input type="url" class="form-control" id="image" aria-describedby="imageHelp" placeholder="Enter image url" name="project_url">
+          </div>
+       
+          
+        
+          
+          
+         
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+</div>
+
+{% comment %} 
+
+<div class="container" style="padding:5%;">
+    <h4>Resume</h4>
+    <br>
+    <div class="row">
+
+      <div class="col-8">
+        <form method="POST">
+          <div class="form-group">
+            <label for="name">Specialty</label>
+            <select name="cars" id="cars">
+              <option value="None" selected="selected"></option>
+              {% for specilaty in specialities %}
+              <option value="{{ specilaty.specilaty_id }}">{{ specilaty.spec_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="name">Job Title</label>
+            <input type="name" class="form-control" id="name" placeholder="Name">
+          </div>
+
+          <div class="form-group">
+            <label for="address">Location</label>
+            <input type="address" class="form-control" id="image" aria-describedby="imageHelp" placeholder="Enter image url">
+          </div>
+          
+          <div class="form-group">
+            <label for="name">Email address</label>
+            <input type="email" class="form-control" id="name" placeholder="Name">
+          </div>
+         
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+</div>
+ {% endcomment %}
+
+
+<div class="container" style="padding:5%;">
+    <h4>Experience</h4>
+    <br>
+    <div class="row">
+
+      <div class="col-8">
+        <form method="POST" action="{% url 'createexp'%}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="image">Start Date</label>
+            <input type="date" class="form-control" id="image" aria-describedby="imageHelp" placeholder="Enter image url" name="start_date">
+          </div>
+          
+          <div class="form-group">
+            <label for="name">End Date</label>
+            <input type="date" class="form-control" id="name" placeholder="Name" name="end_date">
+          </div>
+
+          <div class="form-group">
+            <label for="name">Job Title</label>
+            <input type="name" class="form-control" id="name" placeholder="Name" name="job_role">
+          </div>
+
+          <div class="form-group">
+            <label for="name">Company</label>
+            <input type="name" class="form-control" id="name" placeholder="Name" name="company">
+          </div>
+          
+          <div class="form-group">
+            <label for="testimony">Achievements</label>
+            <textarea style="white-space: pre-line" class="form-control" id="testimony" onInput="handleInput(event)" rows="10" placeholder="Write your Achievements here..."name="achievement" ></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="testimony">Responsibilities</label>
+            <textarea style="white-space: pre-line" class="form-control" id="testimony" onInput="handleInput(event)" rows="10" placeholder="Write your Responsibilities here..." name="responsibilities"></textarea>
+          </div>
+          
+         
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+    
+</div>
+
+
+
+    
+
+
+
+<div class="container" style="padding:5%;">
+    <h4>Education</h4>
+    <br>
+    <div class="row">
+
+      <div class="col-8">
+        <form method="POST" action="{% url 'createedu'%}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="image">Start Date</label>
+            <input type="date" class="form-control" id="image" aria-describedby="imageHelp" placeholder="Enter image url"  name="start_date">
+          </div>
+          
+          <div class="form-group">
+            <label for="name">End Date</label>
+            <input type="date" class="form-control" id="name" placeholder="Name"  name="end_date">
+          </div>
+
+          <div class="form-group">
+            <label for="name">School</label>
+            <input type="name" class="form-control" id="name" placeholder="Name"  name="school">
+          </div>
+
+          <div class="form-group">
+            <label for="name">Programme</label>
+            <input type="name" class="form-control" id="name" placeholder="Name"  name="program">
+          </div>
+          
+         
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+</div>
+
+
+<div class="container" style="padding:5%;">
+    <h4>Courses</h4>
+    <br>
+    <div class="row">
+
+      <div class="col-8">
+        <form method="POST" action="{% url 'createcou'%}">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="name">Specialty</label>
+            <select name="speciality">
+              <option value="None" selected="selected"></option>
+              {% for specilaty in specialities %}
+              <option value="{{ specilaty.specilaty_id }}">{{ specilaty.spec_name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="image">Start Date</label>
+            <input type="date" class="form-control" id="image" aria-describedby="imageHelp" placeholder="Enter image url" name="start_date">
+          </div>
+          
+          <div class="form-group">
+            <label for="name">End Date</label>
+            <input type="date" class="form-control" id="name" placeholder="Name" name="end_date">
+          </div>
+
+          <div class="form-group">
+            <label for="name">Course School</label>
+            <input type="name" class="form-control" id="name" placeholder="Name" name="course_school">
+          </div>
+
+          <div class="form-group">
+            <label for="name">Course</label>
+            <input type="name" class="form-control" id="name" placeholder="Name" name="course">
+          </div>
+          
+          
+          <button type="submit" class="btn btn-info">Submit</button>
+        </form>
+      </div>
+    </div>
+</div>
+
+
+<div class="container" style="padding:5%;">
+  <h4>Skills</h4>
+  <br>
+  <div class="row">
+
+    <div class="col-8">
+      <form method="POST" action="{% url 'createskill'%}">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="name">Specialty</label>
+          <select name="speciality">
+            <option value="None" selected="selected"></option>
+            {% for specilaty in specialities %}
+            <option value="{{ specilaty.specilaty_id }}">{{ specilaty.spec_name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="image">Skill Title</label>
+          <input type="name" class="form-control" id="image" aria-describedby="imageHelp" placeholder="Enter skill title" name="skill_title">
+        </div>
+        
+        <div class="form-group">
+          <label for="name">Skill Set 1</label>
+          <input type="name" class="form-control" id="name" placeholder="Name" name="skill_set1">
+        </div>
+
+        <div class="form-group">
+          <label for="name">Skill Set 2</label>
+          <input type="name" class="form-control" id="name" placeholder="Name" name="skill_set2">
+        </div>
+
+        <div class="form-group">
+          <label for="name">Skill Set 3</label>
+          <input type="name" class="form-control" id="name" placeholder="Name" name="skill_set3">
+        </div>
+
+        <div class="form-group">
+          <label for="name">Skill Set 4</label>
+          <input type="name" class="form-control" id="name" placeholder="Name" name="skill_set4">
+        </div>
+
+        <div class="form-group">
+          <label for="name">Skill Set 5</label>
+          <input type="name" class="form-control" id="name" placeholder="Name" name="skill_set5">
+        </div>
+
+        
+        <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{%endblock%}

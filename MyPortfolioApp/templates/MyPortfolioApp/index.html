@@ -1,0 +1,306 @@
+{% extends "MyPortfolioApp/layout.html" %}
+
+
+
+
+
+<div class="tab-content">
+{% block content%}
+<style type="text/css">
+    .btn-hover {
+        width: 200px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        margin: 20px;
+        height: 55px;
+        text-align:center;
+        border: none;
+        background-size: 300% 100%;
+    
+        border-radius: 50px;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+    
+    .btn-hover:hover {
+        background-position: 100% 0;
+        moz-transition: all .4s ease-in-out;
+        -o-transition: all .4s ease-in-out;
+        -webkit-transition: all .4s ease-in-out;
+        transition: all .4s ease-in-out;
+    }
+    
+    .btn-hover:focus {
+        outline: none;
+    }
+    
+    .btn-hover.color-8 {
+        background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+        box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+    }
+</style>
+
+
+<div class="banner tab-pane fade show active" id="pills-home" >
+    <div class="inner">
+        <h2>SAMUEL OLUWASEUN ANARI</h2>
+        <hr class="division">
+        <p>Business Data Afficionado / Full Stack Web Developer.</p>
+        <h6 class="text-light">Analyzing and visualizing data to make better and informed business decisions | Design Great Websitw with mindblowing functionalities</h6>
+        
+        <a href="https://www.codepen.io" ><button class="btn-hover color-8">HIRE ME</button></a>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+{% block body%}
+
+
+<!--Personal details-->
+<div class="sections py-md-5 tab-pane" id="pills-about">
+    <div class="container">
+        <hr class="dashed">
+        <h2>PERSONAL DETAILS</h2>
+        <div class="small-container">
+           <p> I only really catch fire once I start coding or analyzing big data for businesses, which is what drove me to get a BSc. degree in Computer Science. 
+<br>
+            My dream of being a computer scientist just like my dad didn't click till my first Front End Development course I stumbled upon in college. It incorporates creativity and problem solving and enough room to break and modify codes. 
+            <br>            
+            It's beautiful to see how responsive my webpages get, especially when they shrink to mobile view and the color combinations, which were really helpful in data analysis and visualization. 
+            <br>
+            As my specialty includes quickly learning new skills and programming languages, problem solving, responsive design (website optimization) and the Model View Controller (MVC) method of organizing code, I have Java, Python (Django, Flask), JavaScript, HTML, CSS, MongoDB, Express, React JS, Angular Js, Node JS, BootStrap, jQuery, SQL, PHP and many more. 
+            <br>  Excel, Tableau, PowerBI, Qlikview, MS Access, SQL, ApacheSpark, Numpys, Sci-Kit, Pandas and many more. 
+            <br>
+            I'm still exuberantly grabbing onto any other programming languages, frameworks, or principles I can integrate into coding, web, data science, and analysis.</p>
+        </div>
+        <a class="btn btn-danger btn-outline btn-lg" href="{% url 'about'%}"   onMouseOver="this.style.color='#222222'" onMouseOut="this.style.color=''">About me</a>
+        
+    </div>  
+    
+</div>
+
+
+
+<!--Area of interest-->
+<div class="sections py-md-5">
+    <div class="container col-12 mx-auto align-content-center text-center">
+       
+            <section class="section-services">
+                <div class="container">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-md-10 col-lg-8">
+                            <div class="header-section">
+                                <h2 class="title"><span>Area of Interests & Services</span></h2>
+                                <p class="description">There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some injected humour</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!-- Start Single Service -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="single-service">
+                                <div class="part-1">
+                                    <i class="fas fa-laptop-code"></i>
+                                    <h4 class="title">Web Design</h4>
+                                </div>
+                                <div class="part-2">
+                                    <p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+                                     
+                                </div>
+                            </div>
+                        </div>
+       
+                        <!-- / End Single Service -->
+                        <!-- Start Single Service -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="single-service">
+                                <div class="part-1">
+                                    <i class="fab fa-sketch"></i>
+                                    <h4 class="title">Graphics Design</h4>
+                                </div>
+                                <div class="part-2">
+                                    <p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / End Single Service -->
+                        <!-- Start Single Service -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="single-service">
+                                <div class="part-1">
+                                    <i class="fas fa-database"></i> 
+                                    <h4 class="title">Data & Business Analysis</h4>
+                                </div>
+                                <div class="part-2">
+                                    <p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / End Single Service -->
+                        <!-- Start Single Service -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="single-service">
+                                <div class="part-1">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <h4 class="title">Software and App Development</h4>
+                                </div>
+                                <div class="part-2">
+                                    <p class="description">Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / End Single Service -->
+                        <!-- Start Single Service -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="single-service">
+                                <div class="part-1">
+                                    <i class="fas fa-network-wired"></i>
+                                    <h4 class="title">Networking</h4>
+                                </div>
+                                <div class="part-2">
+                                    <p class="description">Express delivery inno service effective logistics Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / End Single Service -->
+                        <!-- Start Single Service -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="single-service">
+                                <div class="part-1">
+                                    <i class="fas fa-headset"></i>
+                                    <h4 class="title">24/7 IT Support</h4>
+                                    
+                                </div>
+                                <div class="part-2">
+                                    <p class="description">Express delivery inno service effective logistics Express delivery inno service effective logistics solution for delivery of small cargo delivery service.</p>
+                                     
+                                </div>
+                            </div>
+                        </div>
+                        <!-- / End Single Service -->
+                    </div>
+                </div>
+            </section>
+    </div>
+    
+</div>
+
+
+<!--Portfolio Galleria -->
+<div class="sections py-md-5">
+    <div class="container">
+    <div class="container col-12 mx-auto align-content-center text-center">
+        <div class="header-section2">
+            <h2 class="title" style=" text-transform:uppercase;"><span>Recent Projects</span></h2>
+            <p class="description">There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some injected humour</p>
+        </div>
+            
+        
+        <div class="container-all card-columns" id="Portfolio_gallery">
+            {% for p in port %}
+            <div class="gallery_container card">
+                <img src="{{p.image_url}}" alt="">
+                <span class="title">{{p.project_name}}</span>
+                <span class="text">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
+            </div>
+            {%endfor%}
+            {% comment %} <div class="gallery_container card">
+                <img src="https://bit.ly/2PXNumM" alt="">
+                <span class="title">Lorem ipsum dolor</span>
+                <span class="text">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
+            </div>
+            <div class="gallery_container card">
+                <img src="https://bit.ly/2KbUszm" alt="">
+                <span class="title">Lorem ipsum dolor</span>
+                <span class="text">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
+            </div>
+            <div class="gallery_container card">
+                <img src="https://bit.ly/2FnhYul" alt="">
+                <span class="title">Lorem ipsum dolor</span>
+                <span class="text">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
+            </div>
+            <div class="gallery_container card">
+                <img src="https://bit.ly/2FznWrU" alt="">
+                <span class="title">Lorem ipsum dolor</span>
+                <span class="text">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
+            </div>
+                <div class="gallery_container card">
+                <img src="https://bit.ly/2zd3HLf" alt="">
+                <span class="title">Lorem ipsum dolor</span>
+                <span class="text">Morbi diam viverra mattis sociis magna, habitasse penatibus non lectus</span>
+            </div> {% endcomment %}
+        </div>
+        <a class="btn btn-danger btn-outline btn-lg" href="{% url 'project'%}"   onMouseOver="this.style.color='#222222'" onMouseOut="this.style.color=''">MY PROJECTS</a>
+    </div>
+</div>
+</div>
+
+<section class="testimonial text-center">
+    <div class="container">
+
+
+        <div class="header-section2">
+            <h2 class="title" style=" text-transform:uppercase;"><span>Testimonials</span></h2>
+            <p class="description">There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some injected humour</p>
+        </div>
+        <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+          
+         
+            <div class="carousel-inner" role="listbox">
+                {% for test in testimonies %}
+                
+                
+                <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
+                    <div class="testimonial4_slide">
+                        <img src="{{test.img_url}}" class="img-circle img-responsive" />
+                        <p>{{test.testimony}} </p>
+                        <h4>~ {{test.client_name}}</h4>
+                    </div>
+                </div>
+                {% endfor %}
+                
+                <div class="carousel-item">
+                    <div class="testimonial4_slide">
+                        <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" /><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        <h4>~ Client 2</h4>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="testimonial4_slide">
+                        <img src="https://i.ibb.co/8x9xK4H/team.jpg" class="img-circle img-responsive" />
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                        <h4>~ Client 3</h4>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+                <i class="fas fa-chevron-double-left carousel-control-prev-icon"></i>
+            </a>
+            <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+                <i class="fas fa-chevron-double-right carousel-control-next-icon"></i>
+            </a>
+            <div class="left-arrow-wrap arrow-wrap carousel-control-prev"  href="#testimonial4" data-slide="prev">
+				<div class="arrow carousel-control-prev-icon" id="leftArrow"></div>
+			</div>
+			<div class="right-arrow-wrap arrow-wrap carousel-control-next" href="#testimonial4" data-slide="next">
+				<div class="arrow carousel-control-next-icon" id="rightArrow"></div>
+			</div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+</div>
